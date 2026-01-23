@@ -1,43 +1,116 @@
-= {lab_name}
+= OpenShift Pipelines Demo - Healthcare Deployment Automation
+:imagesdir: ../assets/images
 
-The `lab_name` var, known as an asciidoc attribute, above was set in `./content/antora.yml` and can be used to set the lab_name or title of your content.
-You are both free to change its value and if you prefer to use a different var name, you can change the value of `lab_name`, for example to `title` in `./content/antora.yml` and then reference it in your content as `\{title}`. +
+**Presenter Note**: This demonstration shows how Red Hat OpenShift Pipelines transforms healthcare deployment workflows from weeks to hours while maintaining strict compliance requirements.
 
-image::rhel-logo-black.jpg[rhel-logo-black,55%,55%]
+== What This Demo Covers
 
-== Variables
+This demonstration shows how OpenShift Pipelines accelerates healthcare application deployment while meeting strict regulatory requirements:
 
-Other vars can also be set there, such as `ssh_user` and `ssh_password`, and referenced inline in the lab content by using the `\{foo}` syntax.
+* **Automated CI/CD Pipelines** - Eliminate 3-week manual deployment cycles
+* **Built-in Compliance & Security** - Automated HIPAA and SOC2 policy enforcement
+* **Multi-Environment Promotion** - Safe, repeatable deployments across regions
+* **Business ROI** - 97% faster deployments, 90% fewer vulnerabilities, 5x feature velocity
 
-This is another var, or asciidoc attribute, from `./content/antora.yml` {my_var}
+== Customer Scenario: HealthTech
 
-== Writing your lab
+**Company**: HealthTech Inc., a virtual care platform provider
 
-Whatever type of content you are writing we'll refer to your *content* as "your lab" in this document.
+**Challenge**: Manual deployments take 3 weeks, blocking critical patient-facing features and risking regulatory compliance windows.
 
-=== Lab structure
+**Business Impact**:
 
-Wether you are writing a lab
+* Development teams spend 40% of time waiting for deployments
+* Security vulnerabilities discovered too late in the process
+* Regional fragmentation complicates multi-geography deployments
+* HIPAA and SOC2 compliance requires extensive manual audits
 
-* First, we will build a monolithic application already compiled as RPM packages and put it into a container. This will allow us to deploy the application, copy it between machines, and update it separately from the operating system. This process affords us a portable and easily maintained component instead of tightly coupling the application with your operating system maintenance.
+**Solution**: Red Hat OpenShift Pipelines provides Kubernetes-native CI/CD automation with built-in security and compliance features.
 
-* In closing we will build a second container on a different operating system version that makes an application not packaged into RPMs. This will be similar to a web application deployment, positioning the correct files at the right locations. To do this, we will pull a project from GitHub and position the component files within our container image. The purpose of this is to achieve a portable application container that can deploy on several different versions of Red Hat Enterprise Linux. This also provides the benefit of decoupling your application maintenance, which would all happen by building new containers versus operating system maintenance. The container is no longer reliant on the operating system installed on the machine where the application is deployed.
+== Demo Modules
 
-. Now let's examine this cluster a bit more by describing the cluster (the `$GUID` environment variable is already set for you so you can immediately describe your individual cluster):
-+
-[source,sh,role=execute]
-----
-podman ps
-----
-+
-.Sample Output
-[source,texinfo,subs="attributes"]
-----
-CONTAINER ID  IMAGE                        COMMAND           CREATED      STATUS      PORTS                 NAMES
-2dcfee9e50c4  docker.io/library/httpd:2.4  httpd-foreground  3 hours ago  Up 3 hours  0.0.0.0:8080->80/tcp  showroom-httpd
-----
+This demo is structured in three parts, demonstrating progressive automation and business value:
 
-=== Lab Access
+xref:01-overview.adoc[**Presenter Preparation**]::
+Complete business context, problem breakdown, and common customer questions to prepare for the demonstration.
 
-The terminal window to your right is *already* logged into the lab environment as the `{ssh_user}` user via `ssh`.
-All steps of this lab are to be completed as the `{ssh_user}` user.
+xref:03-pipeline-deployment.adoc[**Module 1: Automated Pipeline Deployment** (12-15 min)]::
+Show how OpenShift Pipelines transforms 3-week manual deployments into 2-hour automated workflows, enabling developer self-service and 5x faster feature delivery.
+
+xref:04-compliance-security.adoc[**Module 2: Built-in Compliance & Security** (10-12 min)]::
+Demonstrate automated security scanning, policy enforcement, and compliance reporting that reduces vulnerabilities by 90% while accelerating deployments.
+
+xref:05-multi-environment.adoc[**Module 3: Multi-Environment & Production Confidence** (5-8 min)]::
+Show how to promote applications across dev → staging → production with approval gates, enabling safe regional deployments with consistency.
+
+xref:06-conclusion.adoc[**Conclusion and Next Steps**]::
+Business impact recap, competitive advantages, next steps for evaluation and pilot programs, and comprehensive references.
+
+== Key Business Outcomes
+
+This demonstration delivers compelling proof points:
+
+* **97% faster deployments**: 3 weeks → 2 hours
+* **90% fewer vulnerabilities**: Automated security scanning vs manual audits
+* **5x feature delivery velocity**: Weekly releases instead of quarterly
+* **Zero manual provisioning**: Developer self-service eliminates tickets
+* **Automated compliance**: Policy as code for HIPAA and SOC2
+
+== Target Audience
+
+**Primary**: C-level executives (CTO, CIO) evaluating platform modernization
+
+**Secondary**: VP Engineering, Security leaders, Compliance officers
+
+**Technical**: Solution architects, DevOps engineers, Platform teams
+
+== Demo Prerequisites
+
+**OpenShift Environment**:
+
+* OpenShift 4.14 or later
+* OpenShift Pipelines Operator installed
+* Admin access to cluster console
+
+**Access Information** (provided in environment):
+
+* OpenShift Console: `{openshift_console_url}`
+* Username: `kubeadmin`
+* Password: `{openshift_kubeadmin_password}`
+
+== Presenter Tips
+
+**Pacing**:
+
+* Total demo time: 30-35 minutes
+* Leave 10-15 minutes for questions
+* Pause after each "wow moment" for impact
+
+**Key Messages**:
+
+* Emphasize business outcomes over technical features
+* Connect every technical capability to HealthTech's business challenges
+* Use the 3 weeks → 2 hours metric repeatedly
+* Highlight "compliance without compromise" theme
+
+**Common Objections**:
+
+* "We already have Jenkins" → Show Kubernetes-native advantages and simplified management
+* "Security scanning slows us down" → Demonstrate automated gates that accelerate without sacrificing safety
+* "Our teams aren't ready for Kubernetes" → Emphasize developer-friendly UI and abstraction
+
+**Competitive Positioning**:
+
+* Kubernetes-native (not bolted-on CI/CD like standalone Jenkins)
+* Policy enforcement built-in (vs external tools like Twistlock alone)
+* Enterprise Red Hat support (vs community-only alternatives)
+
+== Additional Resources
+
+* link:https://www.redhat.com/en/technologies/cloud-computing/openshift/pipelines[Red Hat OpenShift Pipelines Product Page^]
+* link:https://docs.openshift.com/pipelines/latest/[OpenShift Pipelines Documentation^]
+* link:https://www.redhat.com/en/resources/healthcare-industry-overview[Healthcare Solutions Overview^]
+
+---
+
+**Ready to begin?** Start with xref:01-overview.adoc[Presenter Preparation] to understand the complete business context, then proceed to xref:03-pipeline-deployment.adoc[Module 1] for the demonstration.
