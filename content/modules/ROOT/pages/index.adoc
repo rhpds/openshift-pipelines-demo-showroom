@@ -74,7 +74,7 @@ This demonstration delivers compelling proof points:
 
 **Access Information** (provided in environment):
 
-* OpenShift Console: `{console_url}`
+* OpenShift Console: `{openshift_cluster_console_url}`
 * Username: `{user}`
 * Password: `{password}`
 

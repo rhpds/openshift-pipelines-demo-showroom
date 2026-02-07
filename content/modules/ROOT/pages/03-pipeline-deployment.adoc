@@ -44,7 +44,7 @@ OpenShift Pipelines eliminates manual deployment steps through Kubernetes-native
 
 . Access the OpenShift web console
 
-* Navigate to `{console_url}` in your browser
+* Navigate to `{openshift_cluster_console_url}` in your browser
 * Login with username `{user}`
 * Password: `{password}`
 

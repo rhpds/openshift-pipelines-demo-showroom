@@ -369,7 +369,7 @@ Before delivering this demonstration, ensure you have:
 
 **Environment Access**:
 
-* [ ] OpenShift cluster URL: `{console_url}`
+* [ ] OpenShift cluster URL: `{openshift_cluster_console_url}`
 * [ ] Credentials verified (username: `{user}`, password: `{password}`)
 * [ ] OpenShift Pipelines Operator installed and verified
 * [ ] Task Catalog populated with git-clone, buildah, openshift-client tasks
