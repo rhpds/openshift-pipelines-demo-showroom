@@ -8,4 +8,4 @@ persist_url_state: true
 
 tabs:
   - name: OCP Console
-    url: 'https://console-openshift-console.embed.${DOMAIN}'
+    url: 'https://console-openshift-console.${DOMAIN}'
