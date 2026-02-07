@@ -74,9 +74,9 @@ This demonstration delivers compelling proof points:
 
 **Access Information** (provided in environment):
 
-* OpenShift Console: `{openshift_console_url}`
-* Username: `kubeadmin`
-* Password: `{openshift_kubeadmin_password}`
+* OpenShift Console: `{console_url}`
+* Username: `{user}`
+* Password: `{password}`
 
 == Presenter Tips
 
